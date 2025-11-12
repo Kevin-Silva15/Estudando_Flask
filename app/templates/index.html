@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+</head>
+
+<body>
+
+  <div>
+    <h3>Estudo do Flaks</h3>
+    <p>Pegando o usuario que vem do backend</p>
+    <p>esse é o usuario: {{context.usuario}} e essa é a idade: {{context.idade}}</p>
+  </div>
+
+  <div>
+    <p> usando url_for no link abaixo! </p>
+    <a href="{{url_for('novo')}}"> link novo </a>
+    <p>Nesse formato que o link ta, ele não vai se quebrar caso tenha uma mudanca no nome do arquivo html</p>
+
+  </div>
+</body>
+
+</html>

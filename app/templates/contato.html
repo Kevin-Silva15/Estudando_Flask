@@ -12,45 +12,26 @@
 <body class="container-xxl">
 
   <div class="container">
-    <div class="row mt-4">
-          <h3>Formulário GET</h3>
-        </div>
-      <form action="" method="get">
-        <div class="col-9">
-          Digite algo para pesquisar
-          <input type="text" name="pesquisa" id="" class="form-control">
-        </div>
-        <div class="col-3 mt-1">
-          <button type="submit" class="btn btn-primary" >Pesquisar</button>
-        </div>
-      </form>
+   
+      <div class="row mt-2">
+        <h3>Envio de contato</h3>
+         <form action="" method="post" class="row mt-4 rounde border shadow">
+          {{form.csrf_token }}
 
-      <p>Você pesquisou: {{context['pesquisa']}}</p>
-      <hr>
-      <hr>
-      <div class="row">
-        <h3>Formulário POST</h3>
-         <form action="" method="post">
-        <div class="col-06">
-          Nome
-          <input type="text" name="nome" id="" class="form-control" required>
-        </div>
-          <div class="col-06">
-          Email
-          <input type="email" name="email" id="" class="form-control" required>
-        </div>
-          <div class="col-12">
-          Assunto
-          <input type="text" name="assunto" id="" class="form-control" required>
-        </div>
-          <div class="col-12">
-            Mensagem
-          <input type="text" name="mensagem" id="" class="form-control" required>
-        </div>
+          {{ form.nome.label() }}
+          {{ form.nome(class="form-control") }}
 
-        <div class="col-3 mt-1">
-          <button type="submit" class="btn btn-primary" >Salvar</button>
-        </div>
+          {{ form.email.label() }}
+          {{ form.email(class="form-control") }}
+
+          {{ form.assunto.label() }}
+          {{ form.assunto(class="form-control") }}
+
+          {{ form.mensagem.label() }}
+          {{ form.mensagem(class="form-control") }}
+
+          {{ form.btnSubmit(class="btn btn-primary col-12 mt-3")}}
+        
       </form>
       </div>
 

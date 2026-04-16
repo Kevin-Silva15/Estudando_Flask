@@ -8,6 +8,8 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 # desabilitando a chegaquem a qualquer alteração
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#Token de segurança
+app.config['SECRET_KEY'] = 'CAMPCMX4294FJ94NCDCD-MCOIC!!3J494CMDLLMV'
 
 # definindo nossa varialvel do banco de dados
 db = SQLAlchemy(app)

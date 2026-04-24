@@ -29,7 +29,7 @@ def contato():
 def contato_lista():
 
     if request.method == "GET":
-        pesquisa = request.arg.get('pesquisa','')
+        pesquisa = request.args.get('pesquisa','')
 
     dados = Contato.query.order_by('nome')
 
@@ -37,9 +37,11 @@ def contato_lista():
         dados = dados.filter_by(nome=pesquisa)
    
     
-    contex = {'dados':dados.all()}
+    context = {'dados':dados.all()}
 
-    return render_template('contato_lista.html', context=contex)
+
+
+    return render_template('contato_lista.html', context=context)
 
 
 

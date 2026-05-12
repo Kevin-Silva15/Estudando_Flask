@@ -1,18 +1,49 @@
 {% extends 'base.html' %}
 {% block content %} 
-  <div>
+  <div class="container">
 
     <h3>Estudo do Flaks</h3>
     <p>Pegando o usuario que vem do backend</p>
     <p>esse é o usuario: {{context.usuario}} e essa é a idade: {{context.idade}}</p>
-  </div>
+  
 
  {% include 'nav.html' %}
   <div>
     <p> usando url_for no link abaixo! </p>
+
+    {% if current_user.is_authenticated %}
+    <span class="btn btn-primary">{{current_user.nome}} {{current_user.sobrenome}}</span>
+    <a href="{{url_for('logout')}}" class="btn btn-danger">Sair</a>
+    {% else %}
+    <form action="" method="post" class="row mt-4 p-4 rounde border shadow">
+      <h3>Faça seu login</h3>
+
+      {{form.csrf_token }}
+
+      {{ form.email.label }}
+      {{ form.email(class="form-control") }}
+
+      {{ form.senha.label }}
+      {{ form.senha(class="form-control") }}
+
+
+      {{ form.btnSubmit(class="btn btn-primary col-12 mt-3")}}
+
+      <div class="col-12 mt-4">
+      Não tem cadastro?
+      <a href="{{url_for('cadastro')}}">Faça seu cadastro</a>
+       </div>
+
+    </form>
+
     
+    {% endif %}
+
+
+    <hr>
     <img src="{{url_for('static', filename='img/capa.jpg')}}" alt="">
 
+  </div>
   </div>
 {% endblock %}
 
